@@ -1,0 +1,109 @@
+# obs_tbl.inp
+#
+#------------------------------------------------------------------------------
+# Sets controls for Horizons observer-table generation driven by
+# Expect script "obs_tbl". Edit this file prior to running the script.
+# 
+# See Horizons documentation for explanation of acceptable values.
+# Does not support changing all Horizons-output defaults (but could
+# be extended to do so).
+#
+ set   EMAIL_ADDR           " "
+ set   CENTER               "geo"
+ set   START_TIME           "2012-Sep-23 16:45"
+ set   STOP_TIME            "2012-Sep-23 19:45" 
+ set   STEP_SIZE            "5m"
+ set   QUANTITIES           "2,4,21"
+#set   ANG_FORMAT           "DEG"
+#
+#------------------------------------------------------------------------------
+# Explanation:
+#
+#   EMAIL_ADDR
+#
+#     User's Internet e-mail contact address.
+#
+#        Example: "joe@your.domain.name"
+#
+#   CENTER
+#
+#     Horizons observer site code. ID numbers provide unique matches while
+#     name strings match on the pattern and sometimes are not unique.
+#     Sites not on the Earth should contain an @ symbol. See Horizons
+#     documentation for full details.
+#
+#         Examples: "Camarillo"     (Unique match for Earth site #670)
+#                   "673"           (Table Mountain)
+#                   "654"           (Table Mountain PHMC)
+#                   "-1"            (Arecibo radar)
+#                   "-14"           (Goldstone DSS-14 radar)
+#                   "@SIRTF"        (SIRTF spacecraft)
+#                   "@10"           (Sun center)
+#                   "@399"          (Earth geocenter)
+#                   "Apollo 11@301" (Apollo 11 landing site on Earth's Moon)
+#
+#   START_TIME
+#
+#     Date the file is to begin.
+#
+#          Examples:  "2003-Aug-28"
+#                     "2003-Aug-28 16:00"
+#
+#   STOP_TIME
+#
+#     Date the SPK file is to end. Must be more than 32 days later
+#     than [start].
+#
+#          Examples: "2006-Sep-06"
+#                    "2006-Sep-06 12:00"
+#
+#   STEP_SIZE
+#
+#     Ephemeris table output step in format:  {integer}[units] [mode]
+#     Units and mode specification are optional. See Horizons
+#     documentation for details.
+#
+#          Examples:
+#            "10m"       10 minute output step
+#            "12h"       12 hour output step
+#             "1d"        1 day output step
+#            "100"       Output 100 steps between start and stop times.
+#                         Can be used to obtain output at less than 1 minute
+#                         intervals.
+#         "5m TVH"       Check for rise-transit-set with respect to the
+#                         true visual horizon at 5 minute intervals.
+#                         Print only those events.
+#
+#   QUANTITIES
+#
+#     Horizons output "quantity code" as in list below. Specifies what
+#     should be computed and output in the table.
+#
+#-------------------------------------------------------------------------------
+#   Select output quantities using the codes below, SEPARATED BY COMMAS:
+#
+# 1. Astrometric RA & DEC  15. Sun sub-long & sub-lat  29. Constellation ID
+#*2. Apparent RA & DEC     16. Sub Sun Pos. Ang & Dis  30. Delta-T (CT - UT)
+# 3.   Rates; RA & DEC     17. N. Pole Pos. Ang & Dis *31. Obs eclip. lon & lat
+#*4. Apparent AZ & EL      18. Helio eclip. lon & lat  32. North pole RA & DEC
+# 5.   Rates; AZ & EL      19. Helio range & rng rate  33. Galactic latitude
+# 6. Sat. X & Y, pos. ang  20. Obsrv range & rng rate  34. Local app. SOLAR time
+# 7. Local app. sid. time  21. One-Way Light-Time      35. Earth->Site lt-time
+# 8. Airmass               22. Speed wrt Sun & obsrvr >36. RA & DEC uncertainty
+# 9. Vis mag. & Surf Brt   23. Sun-Obsrvr-Target angl >37. POS error ellipse
+#10. Illuminated fraction  24. Sun-Target-Obsrvr angl >38. POS uncertainty (RSS)
+#11. Defect of illumin.    25. Targ-Obsrv-Moon/Illum% >39. Range & Rng-rate sig.
+#12. Sat. angle separ/vis  26. Obsr-Primary-Targ angl >40. Doppler/delay sigmas
+#13. Target angular diam.  27. Pos. Ang;radius & -vel
+#14. Obs sub-lng & sub-lat 28. Orbit plane angle
+#
+#  A = All quantities      B = Geocentric only        C = Small-body geocentric
+#  D = Small-body topo.    E = Spacecraft geocentric  F = Spacecraft topocentric
+#-------------------------------------------------------------------------------
+#
+#         Examples:
+#            "1, 36, 37, 38"
+#
+#         ...will return a table containing astrometric J2000 RA/DEC
+#         (pointing) and plane-of-sky error ellipse information. 
+#
